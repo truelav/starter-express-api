@@ -1,15 +1,10 @@
-const express = require('express')
-const app = express()
-// app.all('/', (req, res) => {
-//     console.log("Just got a request!")
-//     res.send('Yo!')
-// })
-app.use('/account', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Account Page!')
-})
-app.use('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Home Page!')
-})
-app.listen(process.env.PORT || 3000)
+import app from "./server.js"
+import connectDB from "./config/db.config.js";
+
+const PORT = process.env.PORT ?? 8888;
+
+app.listen(PORT, (err) => {
+  if (err) return console.log(err);
+  connectDB();
+  console.log(`Server running on port: ${PORT}`);
+});  
