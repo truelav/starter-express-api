@@ -1,4 +1,3 @@
-import app from "./server.js"
 import connectDB from "./config/db.config.js";
 
 import express from "express";
@@ -31,8 +30,6 @@ app.use('/', (req, res) => {
 
 // Error Middleware
 app.use(errorHandlerMiddleware);
-
-export default app
 
 const PORT = process.env.PORT || 3000;
 
